@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fleek AI Engine // Frutta Gelato Executive Presentation</title>
+  <meta name="description" content="Interactive Executive Pitch Deck & Technical Architecture for Frutta Gelato (Attn: Bapak Fauzan & Tim IT / Ops).">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'dark',
+      themeVariables: {
+        darkMode: true,
+        background: '#181817',
+        primaryColor: '#232322',
+        primaryTextColor: '#f6f4f2',
+        primaryBorderColor: '#E5A93C',
+        lineColor: '#E5A93C',
+        secondaryColor: '#181817',
+        tertiaryColor: '#232322',
+        actorBkg: '#181817',
+        actorBorder: '#E5A93C',
+        actorTextColor: '#ffffff',
+        signalColor: '#FF0033',
+        signalTextColor: '#ffffff'
+      },
+      fontFamily: 'Space Grotesk'
+    });
+  </script>
+</head>
+<body>
+
+  <!-- CRT Scanline Grid Overlay -->
+  <div class="crt-scanlines"></div>
+
+  <!-- Slide Progress Bar -->
+  <div class="scroll-progress-container">
+    <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+  </div>
+
+  <!-- Floating Controls (Top Right) -->
+  <header class="controls-header">
+    <button id="themeToggleBtn" class="btn-cyber" title="Ganti Tema">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2"></path>
+        <path d="M12 20v2"></path>
+        <path d="M4.93 4.93l1.41 1.41"></path>
+        <path d="M17.66 17.66l1.41 1.41"></path>
+        <path d="M2 12h2"></path>
+        <path d="M20 12h2"></path>
+        <path d="M6.34 17.66l-1.41 1.41"></path>
+        <path d="M19.07 4.93l-1.41 1.41"></path>
+      </svg>
+      <span>Tema</span>
+    </button>
+    <button id="printBtn" class="btn-cyber" title="Print PDF">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+        <rect x="6" y="14" width="12" height="8"></rect>
+      </svg>
+      <span>Print</span>
+    </button>
+    <button id="navToggleBtn" class="btn-cyber active" title="Menu Navigasi">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+      <span>Navigasi</span>
+    </button>
+  </header>
+
+  <!-- Navigation Drawer -->
+  <div id="navOverlay" class="navbar-drawer-overlay"></div>
+  <nav id="navDrawer" class="navbar-drawer">
+    <div class="nav-drawer-header">
+      <span class="nav-drawer-title">// FRUTTA GELATO DECK</span>
+      <span class="stamp-confidential" style="font-size:0.55rem;">CONFIDENTIAL</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#opening" class="nav-link active"><span class="number">01</span> Executive Cover</a></li>
+      <li><a href="#problem" class="nav-link"><span class="number">02</span> Strategic Context &amp; Gaps</a></li>
+      <li><a href="#architecture" class="nav-link"><span class="number">03</span> Dual-Engine Architecture</a></li>
+      <li><a href="#demo-inbound" class="nav-link"><span class="number">04</span> 🔥 Demo 1: Inbound &amp; Sales Handover</a></li>
+      <li><a href="#demo-po" class="nav-link"><span class="number">05</span> 🔥 Demo 2: PO Capture &amp; ERP Sync</a></li>
+      <li><a href="#doc-generator" class="nav-link"><span class="number">06</span> Deep-Dive: Signed PO Generation</a></li>
+      <li><a href="#sys-flow" class="nav-link"><span class="number">07</span> Sequence Flowchart (Mermaid)</a></li>
+      <li><a href="#extended-scope" class="nav-link"><span class="number">08</span> IT Readiness Gate &amp; ERP Scope</a></li>
+      <li><a href="#commercial-transparency" class="nav-link"><span class="number">09</span> Custom Enterprise Quote &amp; Costs</a></li>
+      <li><a href="#outbound-roadmap" class="nav-link"><span class="number">10</span> Workstream B: Outbound Sourcing</a></li>
+      <li><a href="#timeline" class="nav-link"><span class="number">11</span> 4-Week Implementation Roadmap</a></li>
+      <li><a href="#closing-cta" class="nav-link"><span class="number">12</span> Next Steps &amp; Discovery Handshake</a></li>
+    </ul>
+    <div class="nav-drawer-footer">
+      CONFIDENTIAL - PT FLEEK GROUP INDONESIA<br>
+      Fleek Project // Frutta Gelato Edition
+    </div>
+  </nav>
+
+  <!-- SLIDES WRAPPER -->
+  <div class="slides-container">
+
+    <!-- ============================================================
+         SLIDE 01: EXECUTIVE COVER
+         ============================================================ -->
+    <section id="opening" class="slide-panel active-slide section-opening">
+      <div class="section-content">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span class="stamp-confidential">CONFIDENTIAL — PT FLEEK GROUP INDONESIA</span>
+          <span style="font-family:monospace; font-size:0.75rem; color:var(--frutta-gold); letter-spacing:1px;">FLEEK_DECK // FRUTTA_GELATO_v1.0</span>
+        </div>
+
+        <div class="opening-hero-block">
+          <span class="project-tag" style="margin-bottom:0.6rem;">FLEEK PROJECT // F&amp;B ARTISAN B2B GATEWAY</span>
+          <h1 class="opening-title animate-text">
+            Otomasi Inbound Kemitraan &amp;<br>Penanganan PO 24 Jam <span class="highlight" style="color:var(--frutta-gold);">Frutta Gelato</span>
+          </h1>
+          <p class="opening-subtitle">
+            Solusi <b>Dual-Autonomous AI Agent</b> terpadu: Kualifikasi Calon Mitra Website/WhatsApp 24/7 dan Otomasi Tangkap PO Malam Hari terintegrasi ke Notifikasi Grup Operasional &amp; Open API Sistem Internal Frutta Gelato.
+          </p>
+        </div>
+
+        <div class="cyber-decor" style="padding:1.1rem 1.6rem; display:grid; grid-template-columns:repeat(4, 1fr); gap:1.5rem;">
+          <div>
+            <div style="font-size:0.68rem; color:var(--home-fg-3); text-transform:uppercase; letter-spacing:1px; margin-bottom:2px;">Klien</div>
+            <div style="font-family:var(--font-outfit); font-weight:800; font-size:1.1rem; color:var(--home-fg-1);">Frutta Gelato</div>
+            <div style="font-size:0.72rem; color:var(--frutta-gold);">Artisan Gelato Bali (B2B Horeca)</div>
+          </div>
+          <div>
+            <div style="font-size:0.68rem; color:var(--home-fg-3); text-transform:uppercase; letter-spacing:1px; margin-bottom:2px;">PIC Klien</div>
+            <div style="font-family:var(--font-outfit); font-weight:800; font-size:1.1rem; color:var(--home-fg-1);">Bapak Fauzan</div>
+            <div style="font-size:0.72rem; color:var(--home-fg-2);">Brand Manager</div>
+          </div>
+          <div>
+            <div style="font-size:0.68rem; color:var(--home-fg-3); text-transform:uppercase; letter-spacing:1px; margin-bottom:2px;">Fleek Lead</div>
+            <div style="font-family:var(--font-outfit); font-weight:800; font-size:1.1rem; color:var(--home-fg-1);">Alif Yusfan</div>
+            <div style="font-size:0.72rem; color:var(--home-fg-2);">Account Executive</div>
+          </div>
+          <div>
+            <div style="font-size:0.68rem; color:var(--home-fg-3); text-transform:uppercase; letter-spacing:1px; margin-bottom:2px;">Target Deployment</div>
+            <div style="font-family:var(--font-outfit); font-weight:800; font-size:1.1rem; color:#10b981;">30 Hari Kalender</div>
+            <div style="font-size:0.72rem; color:var(--home-fg-2);">Sprint 1 s/d Sprint 4</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Infinite Marquee Gelato Network Pinned at Bottom -->
+      <div class="marquee-container">
+        <div class="marquee-content">
+          <span>FRUTTA GELATO BALI PUSAT</span><span class="marquee-bullet">•</span>
+          <span>HORECA PARTNER NETWORK</span><span class="marquee-bullet">•</span>
+          <span>SURABAYA MITRA OUTLETS</span><span class="marquee-bullet">•</span>
+          <span>JAKARTA EXPANSION</span><span class="marquee-bullet">•</span>
+          <span>MEDAN &amp; SUMATERA</span><span class="marquee-bullet">•</span>
+          <span>BANDUNG &amp; JABAR</span><span class="marquee-bullet">•</span>
+          <span>ALIBABA B2B EXPORT</span><span class="marquee-bullet">•</span>
+          <span>FRUTTA GELATO BALI PUSAT</span><span class="marquee-bullet">•</span>
+          <span>HORECA PARTNER NETWORK</span><span class="marquee-bullet">•</span>
+          <span>SURABAYA MITRA OUTLETS</span><span class="marquee-bullet">•</span>
+          <span>JAKARTA EXPANSION</span><span class="marquee-bullet">•</span>
+          <span>MEDAN &amp; SUMATERA</span><span class="marquee-bullet">•</span>
+          <span>BANDUNG &amp; JABAR</span><span class="marquee-bullet">•</span>
+          <span>ALIBABA B2B EXPORT</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 02: PROBLEM & STRATEGIC CONTEXT
+         ============================================================ -->
+    <section id="problem" class="slide-panel">
+      <div class="section-content">
+        <span class="sect-meta">// SYS_DIAGNOSIS: OPERATIONAL BOTTLENECKS</span>
+        <div class="project-header">
+          <span class="project-tag">Tantangan Ekspansi B2B</span>
+          <h2 class="project-name animate-text">
+            Keterbatasan Jam Kerja Admin vs Permintaan Pesanan Mitra 24 Jam
+          </h2>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:1.1rem; margin-top:0.5rem;">
+          <div class="cyber-decor" style="padding:1.1rem; border-top:3px solid var(--home-accent);">
+            <div style="font-family:var(--font-outfit); font-size:1.5rem; font-weight:900; color:var(--home-accent); margin-bottom:0.25rem;">01.</div>
+            <h4 style="font-family:var(--font-outfit); font-size:0.95rem; color:var(--home-fg-1); margin-bottom:0.4rem;">Pesan &amp; PO Malam Hari Terbengkalai</h4>
+            <p style="font-size:0.78rem; color:var(--home-fg-2); line-height:1.45;">
+              Mitra Horeca (Resto, Kafe, Hotel) sering melakukan <i>stock-opname</i> dan mengirim Purchase Order (PO) pada pukul 22.00–02.00 dini hari saat outlet tutup. Karena admin offline, PO baru diproses esok siang dan berisiko memperlambat jadwal pengiriman gelato.
+            </p>
+          </div>
+
+          <div class="cyber-decor" style="padding:1.1rem; border-top:3px solid var(--frutta-gold);">
+            <div style="font-family:var(--font-outfit); font-size:1.5rem; font-weight:900; color:var(--frutta-gold); margin-bottom:0.25rem;">02.</div>
+            <h4 style="font-family:var(--font-outfit); font-size:0.95rem; color:var(--home-fg-1); margin-bottom:0.4rem;">Website Menjadi Sumber Leads Tanpa Kualifikasi</h4>
+            <p style="font-size:0.78rem; color:var(--home-fg-2); line-height:1.45;">
+              Website <i>fruttagelato.com</i> adalah sumber leads inbound terbesar. Ratusan prospek bertanya seputar cara menjadi mitra, minimum order, dan ketersediaan mesin gelato, namun belum ada AI kualifikasi 24/7 untuk menjaring calon mitra ber-intent tinggi ke tim sales.
+            </p>
+          </div>
+
+          <div class="cyber-decor" style="padding:1.1rem; border-top:3px solid #10b981;">
+            <div style="font-family:var(--font-outfit); font-size:1.5rem; font-weight:900; color:#10b981; margin-bottom:0.25rem;">03.</div>
+            <h4 style="font-family:var(--font-outfit); font-size:0.95rem; color:var(--home-fg-1); margin-bottom:0.4rem;">Aplikasi ERP Existing Belum Terkoneksi Chat</h4>
+            <p style="font-size:0.78rem; color:var(--home-fg-2); line-height:1.45;">
+              Frutta Gelato telah memiliki aplikasi internal mirip ERP dengan Open API yang siap menerima data, namun saat ini tim admin masih melakukan <i>copy-paste</i> manual dari chat WhatsApp ke sistem. Tidak ada sinkronisasi otomatis dua arah.
+            </p>
+          </div>
+        </div>
+
+        <div style="margin-top:0.85rem; padding:0.65rem 1rem; background:rgba(229, 169, 60, 0.08); border:1px solid var(--frutta-gold); border-radius:6px; display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:0.78rem; color:var(--frutta-gold); font-weight:600;">
+            💡 Kunci Solusi Fleek: Bukan merombak sistem ERP Frutta Gelato, melainkan memasang <b>AI Gateway Cerdas</b> yang menghubungkan chat mitra ke API ERP &amp; Grup Operasional secara otomatis.
+          </span>
+          <span style="font-family:monospace; font-size:0.7rem; color:var(--home-fg-2);">OPEN API INTEGRATION</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 03: DUAL-ENGINE ARCHITECTURE
+         ============================================================ -->
+    <section id="architecture" class="slide-panel">
+      <div class="section-content">
+        <span class="sect-meta">// SYS_FRAMEWORK: 2 AUTONOMOUS WORKFLOWS</span>
+        <div class="project-header">
+          <span class="project-tag">Arsitektur Dua Agen Mandiri</span>
+          <h2 class="project-name animate-text">
+            Pemisahan Alur: AI Admin Sales (Inbound) &amp; AI PO Operations (24/7)
+          </h2>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin-top:0.5rem;">
+          <!-- Pilar 1 -->
+          <div class="cyber-decor" style="padding:1rem; border-left:4px solid var(--frutta-gold);">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+              <span style="background:var(--frutta-gold-dim); color:var(--frutta-gold); font-family:var(--font-outfit); font-size:0.68rem; font-weight:800; padding:2px 8px; border-radius:2px;">PILAR 01 // SALES ADMIN</span>
+              <span style="font-family:monospace; font-size:0.68rem; color:var(--home-fg-3);">TARGET: CALON MITRA BARU</span>
+            </div>
+            <h3 style="font-family:var(--font-outfit); font-size:1.15rem; color:#ffffff; margin-bottom:0.4rem;">AI Inbound Qualifier &amp; Partnership Bot</h3>
+            <p style="font-size:0.76rem; color:var(--home-fg-2); line-height:1.4; margin-bottom:0.6rem;">
+              Menangani calon mitra yang masuk dari Website, WhatsApp, dan DM. Berfungsi menjawab Q&amp;A dengan gaya komunikasi brand, membaca intent, dan melakukan kualifikasi data secara terstruktur.
+            </p>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:0.35rem; font-size:0.74rem; color:var(--home-fg-1);">
+              <li>⚡ <b>Coverage 24/7 Multi-Channel:</b> Respons instan Website Chat, WhatsApp, &amp; Instagram DM.</li>
+              <li>⚡ <b>Intent Memory:</b> Mengenali apakah pengirim adalah <i>New Lead</i> atau <i>Mitra Existing</i>.</li>
+              <li>⚡ <b>Lead Qualifying:</b> Menanyakan kota, konsep outlet (kafe/resto), dan estimasi kebutuhan tub.</li>
+              <li>⚡ <b>Sales Handover Escalation:</b> Karena kemitraan bernilai tinggi tidak bisa di-close di chat, AI mengeskalasi lead qualified lengkap dengan ringkasan profil ke Tim Sales.</li>
+            </ul>
+          </div>
+
+          <!-- Pilar 2 -->
+          <div class="cyber-decor" style="padding:1rem; border-left:4px solid #10b981;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+              <span style="background:rgba(16, 185, 129, 0.15); color:#10b981; font-family:var(--font-outfit); font-size:0.68rem; font-weight:800; padding:2px 8px; border-radius:2px;">PILAR 02 // OPERATIONS ENGINE</span>
+              <span style="font-family:monospace; font-size:0.68rem; color:var(--home-fg-3);">TARGET: MITRA EXISTING &amp; HORECA</span>
+            </div>
+            <h3 style="font-family:var(--font-outfit); font-size:1.15rem; color:#ffffff; margin-bottom:0.4rem;">AI PO Capture, Doc Gen &amp; ERP Gateway</h3>
+            <p style="font-size:0.76rem; color:var(--home-fg-2); line-height:1.4; margin-bottom:0.6rem;">
+              Menangkap Purchase Order (PO) yang dikirim mitra existing di luar jam kerja. Mengurai rincian rasa/tub, meminta konfirmasi komitmen "Ya/Tidak", mencatat ke ERP, dan meneruskan ke Grup Operasional.
+            </p>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:0.35rem; font-size:0.74rem; color:var(--home-fg-1);">
+              <li>⚡ <b>Night-Shift Order Capture:</b> Siap 24 jam menangani order malam hari tanpa admin jaga.</li>
+              <li>⚡ <b>Explicit Confirmation ("Ya/Tidak"):</b> Menghindari salah order dengan meminta konfirmasi sebelum submit.</li>
+              <li>⚡ <b>Signed PO Document Generator:</b> Men-generate dokumen PO berstempel digital resmi Frutta.</li>
+              <li>⚡ <b>Open API ERP Sync &amp; Group Dispatch:</b> Kirim payload ke sistem internal dan broadcast ke Grup WA Operasional agar pagi hari langsung dipersiapkan.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin-top:0.75rem; padding:0.55rem 0.95rem; background:rgba(229, 169, 60, 0.08); border:1px solid var(--frutta-gold); border-radius:6px; display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:0.74rem; color:var(--frutta-gold); font-weight:600;">
+            🎯 <b>Arsitektur Praktis Klien:</b> Frutta Gelato hanya menggunakan <b>1 Nomor WhatsApp Resmi</b>. AI secara otomatis merouting: nomor baru diarahkan ke <i>Workflow Sales</i>, nomor mitra terdaftar diarahkan ke <i>Workflow PO Malam Hari</i>.
+          </span>
+          <span class="stamp-confidential" style="font-size:0.58rem;">SINGLE NUMBER ROUTING</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 04: 🔥 INTERACTIVE DEMO 1 — INBOUND LEAD & SALES HANDOVER
+         ============================================================ -->
+    <section id="demo-inbound" class="slide-panel slide-demo">
+      <div class="section-content">
+        <span class="sect-meta">// LIVE_DEMO_01: IN-DECK INTERACTIVE SIMULATOR</span>
+        <div class="project-header" style="margin-bottom:0.4rem;">
+          <span class="project-tag">Demo 1 • Simulasi Inbound Kemitraan</span>
+          <h2 class="project-name animate-text" style="font-size:1.55rem;">
+            Kualifikasi Calon Mitra Baru &amp; Eskalasi Otomatis ke Tim Sales
+          </h2>
+        </div>
+
+        <div class="split-demo-grid">
+          <!-- WhatsApp Chat Simulator (Kiri) -->
+          <div class="wa-mock-card">
+            <div class="wa-mock-header">
+              <div class="wa-mock-profile">
+                <div class="wa-avatar">FG</div>
+                <div class="wa-name-group">
+                  <span class="wa-name">
+                    Frutta Gelato Partnership 
+                    <svg class="wa-badge-verified" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  </span>
+                  <span class="wa-status">● Online // Official Partnership Gateway</span>
+                </div>
+              </div>
+              <span class="wa-header-pill">AI BOT #1</span>
+            </div>
+
+            <!-- Chat Messages Container -->
+            <div class="wa-chat-body" id="inboundChatBody">
+              <div class="wa-bubble-container ai">
+                <div class="wa-bubble ai">
+                  Halo! Terima kasih telah menghubungi <b>Frutta Gelato</b> 🍨✨<br>
+                  Apakah ada yang bisa kami bantu seputar kemitraan gerai gelato atau pasokan Horeca untuk bisnis Anda?
+                  <span class="wa-bubble-time">14:00</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Preset Chips -->
+            <div class="wa-preset-chips">
+              <button class="chip-btn" onclick="triggerInboundPreset(1)">🍦 Tanya Kemitraan (Surabaya)</button>
+              <button class="chip-btn" onclick="triggerInboundPreset(2)">📋 Modal &amp; Fasilitas</button>
+              <button class="chip-btn" onclick="triggerInboundPreset(3)">📞 Booking Sales</button>
+              <button class="chip-btn reset-chip" onclick="resetInboundChat()" title="Reset Percakapan">🔄 Reset</button>
+            </div>
+
+            <!-- Chat Input -->
+            <form class="wa-input-bar" id="inboundChatForm" onsubmit="handleInboundSubmit(event)">
+              <input type="text" id="inboundInput" class="wa-input-field" placeholder="Ketik pesan calon mitra atau klik chip di atas..." autocomplete="off">
+              <button type="submit" class="wa-send-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+            </form>
+          </div>
+
+          <!-- Inspector & Escalation Card (Kanan) -->
+          <div class="inspector-card">
+            <div class="inspector-header">
+              <span class="inspector-title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                AI Memory &amp; Lead Qualification Inspector
+              </span>
+              <span class="intent-memory-badge" id="inboundIntentTag">MEMORY: NEW LEAD PROSPECT</span>
+            </div>
+
+            <div class="inspector-body">
+              <div style="font-size:0.72rem; color:var(--home-fg-2);">
+                <b>Status Pipeline:</b> AI mengekstrak entitas penting (Kota, Bentuk Usaha, Estimasi Kebutuhan) secara instan tanpa membuat calon mitra merasa diinterogasi.
+              </div>
+
+              <!-- Live Extracted Entity Box -->
+              <div class="cyber-decor" style="padding:0.65rem 0.85rem; background:#141413;">
+                <div style="font-size:0.68rem; color:var(--frutta-gold); font-family:var(--font-outfit); font-weight:800; margin-bottom:0.35rem; text-transform:uppercase;">
+                  Structured Lead Data (CRM Ready):
+                </div>
+                <div class="handover-meta-list" id="inboundExtractedMeta">
+                  <div class="handover-meta-item"><span>Nama Prospek:</span> <strong id="leadName">Rian Prakoso</strong></div>
+                  <div class="handover-meta-item"><span>Target Lokasi:</span> <strong id="leadCity">Surabaya Barat</strong></div>
+                  <div class="handover-meta-item"><span>Model Bisnis:</span> <strong id="leadBiz">Dedicated Gelato Bar</strong></div>
+                  <div class="handover-meta-item"><span>Estimasi Tub:</span> <strong id="leadVolume">15 - 20 Tub / Bulan</strong></div>
+                </div>
+              </div>
+
+              <!-- Sales Handover Box -->
+              <div class="sales-handover-box" id="salesHandoverBox">
+                <div class="handover-title">
+                  <span>⚡ Auto-Escalation to Sales Team</span>
+                  <span style="font-size:0.65rem; color:#10b981; font-family:monospace;">READY TO HANDOVER</span>
+                </div>
+                <p style="font-size:0.72rem; color:var(--home-fg-1); line-height:1.4;">
+                  Kemitraan B2B membutuhkan diskusi komersial &amp; MoU langsung oleh manusia. Seluruh konteks percakapan di atas telah dirangkum dan diteruskan ke Account Executive Frutta Gelato.
+                </p>
+                <button class="btn-book-meeting" onclick="bookSalesMeetingDemo()">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  Jadwalkan Konsultasi dengan Tim Sales
+                </button>
+              </div>
+
+              <!-- Reasoning Log -->
+              <div class="json-code-box" id="inboundReasoningLog">
+// AI Core Reasoning State:
+{
+  "sender_type": "NEW_INBOUND_LEAD",
+  "intent_detected": "PARTNERSHIP_INVESTMENT",
+  "confidence_score": 0.98,
+  "action_taken": "QUALIFY_LOCATION_AND_ESCALATE_TO_SALES"
+}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 05: 🔥 INTERACTIVE DEMO 2 — PO CAPTURE, CONFIRMATION & SIGNED DOC
+         ============================================================ -->
+    <section id="demo-po" class="slide-panel slide-demo">
+      <div class="section-content">
+        <span class="sect-meta">// LIVE_DEMO_02: THE SHOWSTOPPER ENGINE</span>
+        <div class="project-header" style="margin-bottom:0.4rem;">
+          <span class="project-tag" style="border-color:#10b981; color:#10b981; background:rgba(16,185,129,0.1);">Demo 2 • Penanganan PO Malam Hari</span>
+          <h2 class="project-name animate-text" style="font-size:1.55rem;">
+            PO Capture, Validasi "Ya/Tidak", Signed PO &amp; Broadcast Grup Ops
+          </h2>
+        </div>
+
+        <div class="split-demo-grid">
+          <!-- WhatsApp Chat Simulator (Kiri) -->
+          <div class="wa-mock-card">
+            <div class="wa-mock-header">
+              <div class="wa-mock-profile">
+                <div class="wa-avatar" style="background:#10b981; color:#fff;">PO</div>
+                <div class="wa-name-group">
+                  <span class="wa-name">Frutta Gelato — Order Ops <svg class="wa-badge-verified" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></span>
+                  <span class="wa-status">● 24/7 Night-Shift Operations Engine</span>
+                </div>
+              </div>
+              <span class="wa-header-pill" style="background:rgba(229, 169, 60, 0.2); color:var(--frutta-gold); border-color:var(--frutta-gold);">AI BOT #2</span>
+            </div>
+
+            <!-- Chat Messages Container -->
+            <div class="wa-chat-body" id="poChatBody">
+              <div class="wa-bubble-container ai">
+                <div class="wa-bubble ai">
+                  <b>Selamat malam Mitra Frutta Gelato! 🌙🍨</b><br>
+                  Layanan penerimaan PO otomatis aktif 24 jam. Silakan kirimkan rincian pesanan gelato untuk outlet Anda.
+                  <span class="wa-bubble-time">23:15</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Preset Chips -->
+            <div class="wa-preset-chips">
+              <button class="chip-btn" onclick="triggerPoPreset(1)">🌙 Kirim PO (Cafe Senja)</button>
+              <button class="chip-btn" onclick="triggerPoPreset(2)">📦 Repeat 12 Tub (Seminyak)</button>
+              <button class="chip-btn" onclick="triggerPoPreset(3)">🔍 Cek Status ERP</button>
+              <button class="chip-btn reset-chip" onclick="resetPoChat()" title="Reset Percakapan">🔄 Reset</button>
+            </div>
+
+            <!-- Confirmation Bar (Muncul saat minta konfirmasi) -->
+            <div id="poConfirmBar" style="display:none; padding:0.45rem 0.75rem; background:#1c242b; border-top:1px solid #2f3b43; align-items:center; justify-content:space-between;">
+              <span style="font-size:0.72rem; color:var(--frutta-gold); font-weight:600;">Konfirmasi Pesanan Ini?</span>
+              <div style="display:flex; gap:6px;">
+                <button type="button" onclick="confirmPoAction(true)" style="background:#10b981; border:none; color:#fff; font-family:var(--font-outfit); font-size:0.7rem; font-weight:800; padding:4px 10px; border-radius:3px; cursor:pointer;">
+                  ✅ YA, PROSES PO
+                </button>
+                <button type="button" onclick="confirmPoAction(false)" style="background:#ef4444; border:none; color:#fff; font-family:var(--font-outfit); font-size:0.7rem; font-weight:800; padding:4px 10px; border-radius:3px; cursor:pointer;">
+                  ❌ TIDAK / UBAH
+                </button>
+              </div>
+            </div>
+
+            <!-- Chat Input -->
+            <form class="wa-input-bar" id="poChatForm" onsubmit="handlePoSubmit(event)">
+              <input type="text" id="poInput" class="wa-input-field" placeholder="Ketik PO mitra atau klik preset di atas..." autocomplete="off">
+              <button type="submit" class="wa-send-btn" style="background:#10b981; color:#fff;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+            </form>
+          </div>
+
+          <!-- Inspector & Generated Document / Group Dispatch (Kanan) -->
+          <div class="inspector-card">
+            <div class="inspector-header">
+              <span class="inspector-title" style="color:#10b981;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                ERP API Inspector &amp; Document Generator
+              </span>
+              <span class="intent-memory-badge existing" id="poMemoryBadge">EXISTING MITRA: CAFE SENJA</span>
+            </div>
+
+            <div class="inspector-body">
+              <!-- Live Generated PO Document Card -->
+              <div class="signed-po-card" id="signedPoCard">
+                <div class="po-header-row">
+                  <div style="display:flex; align-items:center; gap:8px;">
+                    <div class="po-title">PURCHASE ORDER (PO)</div>
+                    <span class="po-badge-confirmed" id="poStatusBadge">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      CONFIRMED &amp; SIGNED
+                    </span>
+                  </div>
+                  <span class="po-id-badge" id="poDocNumber">PO-FRU-2026-0921-084</span>
+                </div>
+
+                <div style="font-size:0.7rem; color:var(--home-fg-2); margin-bottom:0.3rem;">
+                  Mitra: <strong id="poClientName" style="color:#fff;">Cafe Senja (Seminyak Bali)</strong> | Tgl Kirim: <strong id="poDeliveryDate" style="color:#fff;">Besok, 11:00 WITA</strong>
+                </div>
+
+                <table class="po-table">
+                  <thead>
+                    <tr><th>Item / Rasa Gelato</th><th>SKU</th><th style="text-align:right;">Qty</th></tr>
+                  </thead>
+                  <tbody id="poTableBody">
+                    <tr><td>Sicilian Pistachio 5L Tub</td><td>PST-5L</td><td style="text-align:right;">5 Tub</td></tr>
+                    <tr><td>Dark Chocolate 70% 5L Tub</td><td>DCH-5L</td><td style="text-align:right;">3 Tub</td></tr>
+                  </tbody>
+                </table>
+
+                <div class="po-signature-row">
+                  <div style="font-size:0.65rem; color:var(--home-fg-3);">
+                    Validation Token: <span style="color:#10b981; font-family:monospace;" id="poToken">#FRU-VLD-9842</span>
+                  </div>
+                  <span class="digital-stamp">DIGITALLY VERIFIED</span>
+                </div>
+              </div>
+
+              <!-- Group WhatsApp Notification Card -->
+              <div class="ops-group-notification" id="opsNotificationBox">
+                <div style="display:flex; justify-content:space-between;">
+                  <strong>📢 Teruskan ke Grup WA: "Operasional PO Frutta Bali"</strong>
+                  <span style="font-size:0.65rem; color:#888;">Live Webhook Push</span>
+                </div>
+                <span id="opsNotificationText">
+                  "⚡ [PO MALAM HARI DITERIMA] Mitra: Cafe Senja Bali. Total: 8 Tub Gelato. Jadwal Kirim: Besok jam 11:00 WITA. Status ERP: TERKUNCI. Mohon tim gudang prepare pagi."
+                </span>
+              </div>
+
+              <!-- ERP Live JSON Payload -->
+              <div class="json-code-box" id="poJsonPayload">
+POST /api/v1/frutta/orders/po-capture
+{
+  "partner_id": "PTR-BALI-042",
+  "client_name": "Cafe Senja Bali",
+  "confirmed_by_client": true,
+  "order_timestamp": "2026-09-20T23:18:42+08:00",
+  "delivery_slot": "2026-09-21T11:00:00+08:00",
+  "items": [
+    {"sku": "PST-5L", "name": "Sicilian Pistachio", "qty": 5},
+    {"sku": "DCH-5L", "name": "Dark Chocolate 70%", "qty": 3}
+  ],
+  "erp_status": "AUTO_RECORDED",
+  "forward_to_ops_group": true
+}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 06: DEEP-DIVE DOCUMENT GENERATOR & DELIVERY TOKEN
+         ============================================================ -->
+    <section id="doc-generator" class="slide-panel">
+      <div class="section-content">
+        <span class="sect-meta">// SYS_FEATURE: GENERATE DOKUMEN &amp; TOKEN VALIDASI</span>
+        <div class="project-header">
+          <span class="project-tag">Sistem Administrasi Otomatis</span>
+          <h2 class="project-name animate-text">
+            Penerbitan PO Bertanda Tangan Digital &amp; Batasan Non-Payment
+          </h2>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1.2fr 1fr; gap:1.2rem; margin-top:0.6rem;">
+          <div class="cyber-decor" style="padding:1.1rem;">
+            <h4 style="font-family:var(--font-outfit); font-size:1.05rem; color:var(--frutta-gold); margin-bottom:0.6rem;">
+              Standar Integritas Dokumen PO Otomatis
+            </h4>
+            <p style="font-size:0.78rem; color:var(--home-fg-2); line-height:1.45; margin-bottom:0.75rem;">
+              Setiap kali mitra menyelesaikan konfirmasi pesanan di luar jam kerja, Fleek Intelligent Core secara instan meng-generate salinan dokumen PDF resmi yang mengikat kedua belah pihak:
+            </p>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:0.45rem; font-size:0.76rem; color:var(--home-fg-1);">
+              <li>📑 <b>Nomor PO Unik Otomatis:</b> Terbit berurutan sinkron dengan penomoran ERP internal Frutta.</li>
+              <li>🏷️ <b>Standarisasi SKU &amp; Rasa:</b> Mencegah kesalahan ketik (misal: "Pistachio 5L" langsung di-mapping ke SKU <code>PST-5L</code>).</li>
+              <li>🛡️ <b>Timestamp Digital &amp; Delivery Token:</b> Dilengkapi kode verifikasi unik untuk supir/kurir saat serah terima di outlet mitra.</li>
+              <li>🔒 <b>Strict Non-Payment Guardrail:</b> Sesuai permintaan eksplisit klien, sistem <b>TIDAK memproses transaksi pembayaran uang</b>. Pembayaran tetap mengikuti termin manual / transfer bank existing.</li>
+            </ul>
+          </div>
+
+          <div class="cyber-decor" style="padding:1.1rem; border-left:4px solid var(--home-accent);">
+            <div style="font-family:var(--font-outfit); font-size:0.75rem; font-weight:800; color:var(--home-accent); text-transform:uppercase; margin-bottom:0.3rem;">
+              Flow Forward Notifikasi Operasional
+            </div>
+            <h4 style="font-family:var(--font-outfit); font-size:0.95rem; color:#fff; margin-bottom:0.4rem;">
+              Admin Pagi Hari Tinggal Eksekusi
+            </h4>
+            <p style="font-size:0.76rem; color:var(--home-fg-2); line-height:1.45; margin-bottom:0.6rem;">
+              Tim gudang dan admin tidak perlu lagi scroll chat WhatsApp satu per satu di pagi hari. Saat mereka masuk kantor pukul 08.00 pagi:
+            </p>
+            <div style="background:#111; padding:0.6rem 0.75rem; border-radius:4px; border:1px solid #333; font-size:0.72rem; color:#a7f3d0; line-height:1.4;">
+              ✅ Semua PO malam hari sudah tersusun rapi di ERP.<br>
+              ✅ Ringkasan total tub sudah ter-rekap di Grup WA Operasional.<br>
+              ✅ Jadwal rute pengiriman sudah terurut berdasarkan jam permintaan mitra.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 07: SEQUENCE DIAGRAM & TECHNICAL FLOW (MERMAID)
+         ============================================================ -->
+    <section id="sys-flow" class="slide-panel">
+      <div class="section-content">
+        <span class="sect-meta">// SYS_ARCHITECTURE: FULL END-TO-END DATA PIPELINE</span>
+        <div class="project-header">
+          <span class="project-tag">Technical Flowchart</span>
+          <h2 class="project-name animate-text">
+            Alur Integrasi: Webhook, NLU Parsing, ERP API &amp; Grup Dispatch
+          </h2>
+        </div>
+
+        <div class="cyber-decor" style="padding:1rem; margin-top:0.4rem;">
+          <pre class="mermaid">
+sequenceDiagram
+    autonumber
+    actor Mitra as Mitra / Calon Mitra
+    participant WA as WhatsApp Meta Gateway
+    participant AI as Fleek Intelligent Core (Gemini)
+    participant ERP as Open API Sistem Internal (ERP Frutta)
+    participant Ops as Grup WA Operasional / Sales
+
+    Mitra->>WA: Kirim Chat (Inbound Kemitraan / PO Malam Hari)
+    WA->>AI: Webhook Event (Teks & Phone JID)
+    activate AI
+    AI->>AI: Intent Memory Lookup (New Lead vs Existing Mitra)
+    
+    alt Skenario 1: New Lead (Inquiry Kemitraan B2B)
+        AI-->>Mitra: Jawab Q&A + Ajukan Kualifikasi (Kota, Tipe Bisnis)
+        Mitra->>AI: Kirim Data Kualifikasi
+        AI->>Ops: Eskalasi Data Lead ke Tim Sales (Human Handover)
+        AI-->>Mitra: Kirim Konfirmasi Jadwal Diskusi Sales
+    else Skenario 2: Existing Mitra (PO di Luar Jam Kerja)
+        AI->>AI: Parsing Order (Rasa Gelato, Jumlah Tub, Jadwal Kirim)
+        AI-->>Mitra: Minta Konfirmasi Komitmen ("Ketik Ya / Tidak")
+        Mitra->>AI: Balas "Ya"
+        AI->>ERP: POST /api/v1/orders/po-capture (Payload JSON)
+        ERP-->>AI: HTTP 200 (Booking ID & Confirmation)
+        AI->>Ops: Forward Notifikasi Lengkap ke Grup WA Operasional
+        AI-->>Mitra: Kirim Bukti PO Terkonfirmasi + Signed Delivery Token
+    end
+    deactivate AI
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 08: IT READINESS GATE & ERP BOUNDARY (FASE 1 VS FASE 1.5)
+         ============================================================ -->
+    <section id="extended-scope" class="slide-panel">
+      <div class="section-content">
+        <span class="sect-meta">// SYS_SCOPING: BOUNDARY FASE 1 VS FASE 1.5 &amp; IT READINESS GATE</span>
+        <div class="project-header">
+          <span class="project-tag" style="border-color:#10b981; color:#10b981; background:rgba(16,185,129,0.1);">IT Readiness Gate • Prasyarat Integrasi ERP</span>
+          <h2 class="project-name animate-text">
+            Batasan Sistem: Fase 1 (Core MVP) vs Add-on Direct API ERP
+          </h2>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1.15fr; gap:1.2rem; margin-top:0.4rem;">
+          <!-- Kolom Kiri: Garis Batas Rilis -->
+          <div class="cyber-decor" style="padding:1rem; border-left:4px solid var(--frutta-gold); display:flex; flex-direction:column; gap:0.6rem;">
+            <div style="font-family:var(--font-outfit); font-size:0.75rem; font-weight:800; color:var(--frutta-gold); text-transform:uppercase;">
+              Garis Batas Rilis Sistem
+            </div>
+            
+            <div style="background:#151514; border:1px solid #2a2a28; border-radius:6px; padding:0.75rem;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.3rem;">
+                <strong style="font-size:0.82rem; color:#10b981;">🟢 FASE 1: CORE MVP (100% MANDIRI)</strong>
+                <span class="wa-header-pill" style="font-size:0.58rem;">ZERO IT DEPENDENCY</span>
+              </div>
+              <p style="font-size:0.73rem; color:var(--home-fg-2); line-height:1.38; margin:0;">
+                Berjalan mandiri via WhatsApp Gateway Resmi + Dual AI Engine + Notifikasi Real-time ke <b>Grup WA Operasional Frutta Bali</b> + Fleek Database (Spreadsheet/Supabase) + <b>Signed PDF PO Generator</b>. Dijamin go-live cepat tanpa menunggu kesiapan server internal.
+              </p>
+            </div>
+
+            <div style="background:#151514; border:1px solid #2a2a28; border-radius:6px; padding:0.75rem;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.3rem;">
+                <strong style="font-size:0.82rem; color:var(--frutta-gold);">⚙️ FASE 1.5: DIRECT API ERP SYNC</strong>
+                <span class="wa-header-pill" style="font-size:0.58rem; background:rgba(229,169,60,0.15); color:var(--frutta-gold); border-color:var(--frutta-gold);">ADD-ON SETUP FEE</span>
+              </div>
+              <p style="font-size:0.73rem; color:var(--home-fg-2); line-height:1.38; margin:0;">
+                Sambungan langsung dua arah ke database ERP internal Frutta Gelato. Memerlukan penyesuaian khusus dan uji coba sandbox bersama tim IT Frutta.
+              </p>
+            </div>
+          </div>
+
+          <!-- Kolom Kanan: 4 Prasyarat Teknis untuk Tim IT -->
+          <div class="cyber-decor" style="padding:1rem; border-left:4px solid #10b981; display:flex; flex-direction:column; gap:0.45rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div style="font-family:var(--font-outfit); font-size:0.75rem; font-weight:800; color:#10b981; text-transform:uppercase;">
+                4 Kebutuhan Teknis dari Tim IT Frutta (Checklist)
+              </div>
+              <span style="font-family:monospace; font-size:0.65rem; color:var(--home-fg-3);">IT DISCOVERY GATE</span>
+            </div>
+
+            <div class="it-req-item">
+              <div class="req-title">
+                <span>1. API Endpoint URL (Sandbox / Staging)</span>
+              </div>
+              <div class="req-desc">
+                Base URL endpoint staging yang dapat dijangkau Fleek Automation Core (contoh: <code>POST /api/v1/orders/po-capture</code>).
+              </div>
+            </div>
+
+            <div class="it-req-item">
+              <div class="req-title">
+                <span>2. Token Key / API Key / Bearer Auth</span>
+              </div>
+              <div class="req-desc">
+                Kredensial autentikasi header aktif dengan hak akses write/create order ke database internal Frutta.
+              </div>
+            </div>
+
+            <div class="it-req-item">
+              <div class="req-title">
+                <span>3. JSON Payload Contract &amp; Response Schema</span>
+              </div>
+              <div class="req-desc">
+                Dokumentasi struktur field data pesanan (Swagger, Postman Collection, atau cURL sample) agar pemetaan SKU, Qty, dan Tanggal Kirim 100% presisi.
+              </div>
+            </div>
+
+            <div class="it-req-item">
+              <div class="req-title">
+                <span>4. Webhook / Callback URL (Opsional)</span>
+              </div>
+              <div class="req-desc">
+                Endpoint penerima sinyal status order dari gudang (IN_PREPARATION, IN_DELIVERY, COMPLETED).
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Safety Fallback Clause Banner -->
+        <div style="margin-top:0.65rem; padding:0.55rem 0.95rem; background:rgba(16, 185, 129, 0.08); border:1px solid #10b981; border-radius:6px; display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:0.73rem; color:#d1fae5; line-height:1.35;">
+            🛡️ <b>Klausul Jaminan Fleek:</b> Jika tim IT Frutta memerlukan waktu untuk menyiapkan API/Endpoint, <b>Fase 1 TETAP BERJALAN 100% GO-LIVE</b> via Fleek DB &amp; Grup WA Operasional tanpa menunda jadwal peluncuran!
+          </span>
+          <span class="stamp-confidential" style="font-size:0.58rem; background:rgba(16,185,129,0.15); border-color:#10b981; color:#10b981;">SAFETY FALLBACK</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 09: CUSTOM ENTERPRISE QUOTE & 3RD PARTY COSTS
+         ============================================================ -->
+    <section id="commercial-transparency" class="slide-panel">
+      <div class="section-content">
+        <span class="sect-meta">// SYS_COMMERCIAL: CUSTOM ENTERPRISE QUOTE &amp; BIAYA 3RD PARTY</span>
+        <div class="project-header" style="margin-bottom:0.35rem;">
+          <span class="project-tag" style="border-color:var(--frutta-gold); color:var(--frutta-gold); background:var(--frutta-gold-dim);">Investasi &amp; Biaya Operasional</span>
+          <h2 class="project-name animate-text" style="font-size:1.55rem;">
+            Custom Enterprise Pricing &amp; Transparansi Biaya 3rd Party
+          </h2>
+        </div>
+
+        <!-- 3 Pricing Tier Cards (Custom Enterprise Quote) -->
+        <div class="pricing-tier-grid">
+          <div class="pricing-card">
+            <span class="pricing-tier-tag">FASE 1 // CORE MVP SETUP</span>
+            <div class="pricing-tier-price">Rp 30jt – 35jt <span>/ setup</span></div>
+            <ul class="pricing-feature-list">
+              <li>✅ <b>Dual-Engine AI</b> (Sales Inbound + PO Night-Shift)</li>
+              <li>✅ 1 Nomor WhatsApp Business API Meta</li>
+              <li>✅ Notifikasi Real-Time Grup WA Operasional</li>
+              <li>✅ Automatic Signed PDF PO Generator</li>
+              <li>✅ Fleek DB Sync (Spreadsheet / Supabase)</li>
+            </ul>
+          </div>
+
+          <div class="pricing-card">
+            <span class="pricing-tier-tag" style="color:#10b981;">FASE 1.5 // ADD-ON DIRECT ERP</span>
+            <div class="pricing-tier-price" style="color:#10b981;">Rp 15jt – 20jt <span>/ setup</span></div>
+            <ul class="pricing-feature-list">
+              <li>⚙️ Direct Open API ERP Bidirectional Sync</li>
+              <li>⚙️ Custom Middleware &amp; Error Recovery Queue</li>
+              <li>⚙️ Postman Test Suite &amp; Staging Sandbox Trial</li>
+              <li>⚙️ Auto-Fallback to Fleek DB jika ERP Timeout</li>
+              <li>💡 <i>Disesuaikan saat sesi IT Discovery</i></li>
+            </ul>
+          </div>
+
+          <div class="pricing-card featured">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span class="pricing-tier-tag" style="color:var(--frutta-gold);">FULL ENTERPRISE BUNDLE</span>
+              <span class="stamp-confidential" style="font-size:0.55rem;">POPULER</span>
+            </div>
+            <div class="pricing-tier-price" style="color:var(--frutta-gold);">Rp 45jt – 50jt <span>/ all-in</span></div>
+            <ul class="pricing-feature-list">
+              <li>🌟 Core Dual AI + Direct API ERP Terpadu</li>
+              <li>🌟 Prioritas Technical Discovery Sprint 1</li>
+              <li>🌟 Skema Termin Fleek: <b>DP 55% Kick-Off</b> &amp; <b>Pelunasan 45%</b> Pasca UAT &amp; Live</li>
+              <li>🌟 Dedicated Support &amp; SLA Garansi 30 Hari</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Metric Cards & Threshold in Split Grid -->
+        <div style="display:grid; grid-template-columns:1.25fr 1fr; gap:0.9rem; margin-top:0.45rem;">
+          <!-- Threshold Guardrail & Real Costs -->
+          <div class="cyber-decor" style="padding:0.75rem 0.95rem; border-left:4px solid var(--home-accent);">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.25rem;">
+              <div style="font-family:var(--font-outfit); font-size:0.75rem; font-weight:800; color:var(--home-accent); text-transform:uppercase;">
+                🛡️ Threshold Guardrail (Anti-Boncos)
+              </div>
+              <span style="font-family:monospace; font-size:0.65rem; color:#10b981;">MAX 6–8 BUBBLE</span>
+            </div>
+            <p style="font-size:0.72rem; color:var(--home-fg-2); line-height:1.35; margin:0 0 0.4rem 0;">
+              Biaya 3rd party transparan (pass-through): <b>Rp 500 / bubble AI</b> (Gemini 2.0 Flash reasoning + Meta WA API) &amp; <b>Rp 1.500 / render dokumen PDF</b>.
+            </p>
+            <div style="font-size:0.71rem; color:var(--home-fg-1); background:#151514; padding:0.4rem 0.65rem; border-radius:4px; border:1px solid #282826;">
+              🔒 <b>Proteksi Otomatis:</b> Jika percakapan mencapai 6–8 bubble tanpa keputusan, AI otomatis mengalihkan chat ke Tim Sales/Admin Manusia. Biaya klien terproteksi 100%.
+            </div>
+          </div>
+
+          <!-- Interactive Calculator -->
+          <div class="interactive-calc-box" style="margin-top:0; padding:0.75rem 0.95rem;">
+            <div class="calc-slider-row">
+              <div>
+                <span style="font-size:0.72rem; color:var(--home-fg-1); font-weight:700;">Simulasi Chat Masuk:</span>
+                <span id="chatVolumeDisplay" style="font-family:var(--font-outfit); font-weight:900; color:var(--frutta-gold); font-size:0.95rem; margin-left:6px;">1,000 Chat</span>
+              </div>
+              <input type="range" id="chatVolumeSlider" class="calc-slider" min="200" max="5000" step="100" value="1000" oninput="updateCostCalculation(this.value)" style="width:45%;">
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #2a2a28; padding-top:0.45rem; font-size:0.75rem;">
+              <span>Estimasi Token 3rd Party:</span>
+              <strong id="costEstimateDisplay" style="font-family:var(--font-outfit); font-size:1.05rem; color:#10b981;">Rp 500,000 / bln</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 10: WORKSTREAM B — OUTBOUND HORECA SOURCING
+         ============================================================ -->
+    <section id="outbound-roadmap" class="slide-panel">
+      <div class="section-content">
+        <span class="sect-meta">// WORKSTREAM_B: STRATEGIC GROWTH ROADMAP</span>
+        <div class="project-header">
+          <span class="project-tag">Fase 2 • Suplai Leads Top-of-Funnel</span>
+          <h2 class="project-name animate-text">
+            Outbound Lead Acquisition: Sourcing &amp; Enrichment Direktori Horeca
+          </h2>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; margin-top:0.6rem;">
+          <div class="cyber-decor" style="padding:1.1rem;">
+            <h4 style="font-family:var(--font-outfit); font-size:1rem; color:var(--frutta-gold); margin-bottom:0.4rem;">
+              Tantangan Suplai Qualified Leads Saat Ini
+            </h4>
+            <p style="font-size:0.78rem; color:var(--home-fg-2); line-height:1.45; margin-bottom:0.6rem;">
+              Selain mengotomasi inbound, Frutta Gelato menargetkan penambahan qualified leads secara konsisten di kota-kota ekspansi (Surabaya, Medan, Jakarta, Bandung). Workstream B dirancang sebagai jalur terpisah khusus untuk menyuplai prospek baru ke sales funnel:
+            </p>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:0.4rem; font-size:0.75rem; color:var(--home-fg-1);">
+              <li>🎯 <b>Targeting Segmen Spesifik:</b> Restoran bintang 4-5, jaringan cafe artisan, beach club Bali, dan hotel boutique.</li>
+              <li>🔍 <b>Automated Data Scraping:</b> Pengumpulan data publik direktori bisnis kuliner &amp; asosiasi perhotelan.</li>
+              <li>📊 <b>Enrichment &amp; Verification:</b> Memperkaya nomor kontak PIC Purchasing / F&amp;B Director yang valid.</li>
+            </ul>
+          </div>
+
+          <div class="cyber-decor" style="padding:1.1rem; border-left:4px solid #10b981;">
+            <h4 style="font-family:var(--font-outfit); font-size:1rem; color:#fff; margin-bottom:0.4rem;">
+              Output Siap Pakai untuk Tim Sales Frutta
+            </h4>
+            <p style="font-size:0.78rem; color:var(--home-fg-2); line-height:1.45; margin-bottom:0.7rem;">
+              Tim sales tidak perlu lagi mencari prospek dari nol. Sistem menghasilkan database prospek terstruktur siap eksekusi:
+            </p>
+            <div class="json-code-box">
+// Sample Output Enriched Lead (Horeca):
+{
+  "business_name": "The Glasshouse Cafe Surabaya",
+  "category": "Premium Bistro & Dessert Lounge",
+  "city": "Surabaya Barat",
+  "decision_maker": "Head Chef & Purchasing Manager",
+  "contact_verified": "+62 812-3489-XXXX",
+  "current_gelato_supplier": "None (Looking for B2B Artisan)",
+  "fit_score": "HIGH_PRIORITY_A"
+}</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 11: IMPLEMENTATION ROADMAP (4 WEEKS)
+         ============================================================ -->
+    <section id="timeline" class="slide-panel">
+      <div class="section-content">
+        <span class="sect-meta">// SYS_MILESTONE: 4-WEEK ROLLOUT TIMELINE</span>
+        <div class="project-header">
+          <span class="project-tag">Timeline Menuju Go-Live</span>
+          <h2 class="project-name animate-text">
+            Roadmap Implementasi Cepat Menuju Official Deployment
+          </h2>
+        </div>
+
+        <div class="timeline-pipeline">
+          <div class="timeline-step active">
+            <div class="timeline-node">1</div>
+            <div class="timeline-meta">Minggu 1</div>
+            <h5 class="timeline-title">IT Discovery &amp; Readiness Gate</h5>
+            <p class="timeline-desc">
+              Pertemuan teknis bersama tim IT Frutta, validasi 4 item wajib (Endpoint, Token, Payload Spec, Webhook), dan setup sandbox staging.
+            </p>
+          </div>
+
+          <div class="timeline-step">
+            <div class="timeline-node">2</div>
+            <div class="timeline-meta">Minggu 2</div>
+            <h5 class="timeline-title">Dual-Workflow Engineering</h5>
+            <p class="timeline-desc">
+              Konfigurasi Prompt NLU Gemini, intent memory router (New vs Existing), parser PO malam hari, dan webhook Grup WA Operasional.
+            </p>
+          </div>
+
+          <div class="timeline-step">
+            <div class="timeline-node">3</div>
+            <div class="timeline-meta">Minggu 3</div>
+            <h5 class="timeline-title">UAT &amp; Night-Shift Trial</h5>
+            <p class="timeline-desc">
+              Uji coba simulasi order malam hari bersama 2–3 mitra Horeca percontohan, validasi PDF signed PO, dan kalibrasi threshold anti-boncos.
+            </p>
+          </div>
+
+          <div class="timeline-step">
+            <div class="timeline-node">4</div>
+            <div class="timeline-meta">Minggu 4</div>
+            <h5 class="timeline-title">Go-Live &amp; Staff Training</h5>
+            <p class="timeline-desc">
+              Peluncuran resmi nomor WhatsApp Business Meta Frutta Gelato, pelatihan admin/gudang, dan pendampingan live support SLA Fleek.
+            </p>
+          </div>
+        </div>
+
+        <div style="margin-top:1.5rem; padding:0.8rem 1.2rem; background:var(--card-bg); border:1px solid var(--window-border); border-radius:6px; display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:0.78rem; color:var(--home-fg-1);">
+            🚀 <b>Jaminan Fleek:</b> Sistem live dalam 30 hari kalender tanpa mengganggu jalannya operasional harian Frutta Gelato.
+          </span>
+          <span class="stamp-confidential" style="font-size:0.6rem;">GUARANTEED SLA</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 12: CLOSING & NEXT STEPS
+         ============================================================ -->
+    <section id="closing-cta" class="slide-panel">
+      <div class="section-content">
+        <span class="sect-meta">// SYS_ACTION: NEXT STEPS &amp; ALIGNMENT</span>
+        <div class="project-header">
+          <span class="project-tag" style="border-color:var(--home-accent); color:var(--home-accent); background:rgba(255,0,51,0.1);">Langkah Selanjutnya</span>
+          <h2 class="project-name animate-text">
+            Siap Mengamankan Pesanan Malam Hari &amp; Percepat Kemitraan?
+          </h2>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:1.1rem; margin-top:0.6rem;">
+          <div class="cyber-decor" style="padding:1.1rem; border-top:3px solid var(--frutta-gold);">
+            <div style="font-family:var(--font-outfit); font-size:1.3rem; font-weight:900; color:var(--frutta-gold); margin-bottom:0.25rem;">STEP 1</div>
+            <h4 style="font-family:var(--font-outfit); font-size:0.95rem; color:#fff; margin-bottom:0.35rem;">Technical Discovery IT</h4>
+            <p style="font-size:0.76rem; color:var(--home-fg-2); line-height:1.4;">
+              Sesi 30 menit antara tim engineering Fleek dan tim IT Frutta Gelato untuk membedah dokumentasi Open API ERP (endpoint PO, auth, dan webhook).
+            </p>
+          </div>
+
+          <div class="cyber-decor" style="padding:1.1rem; border-top:3px solid #10b981;">
+            <div style="font-family:var(--font-outfit); font-size:1.3rem; font-weight:900; color:#10b981; margin-bottom:0.25rem;">STEP 2</div>
+            <h4 style="font-family:var(--font-outfit); font-size:0.95rem; color:#fff; margin-bottom:0.35rem;">Finalisasi Field Data PO</h4>
+            <p style="font-size:0.76rem; color:var(--home-fg-2); line-height:1.4;">
+              Penyepakatan format field wajib (ID Mitra, Varian SKU Gelato, Jumlah Tub, Jadwal Kirim, dan PIC Penerima) bersama tim operasional Frutta.
+            </p>
+          </div>
+
+          <div class="cyber-decor" style="padding:1.1rem; border-top:3px solid var(--home-accent);">
+            <div style="font-family:var(--font-outfit); font-size:1.3rem; font-weight:900; color:var(--home-accent); margin-bottom:0.25rem;">STEP 3</div>
+            <h4 style="font-family:var(--font-outfit); font-size:0.95rem; color:#fff; margin-bottom:0.35rem;">Kick-Off Sprint 1</h4>
+            <p style="font-size:0.76rem; color:var(--home-fg-2); line-height:1.4;">
+              Penandatanganan kesepakatan kerjasama, alokasi AI Engineer Fleek, dan pembuatan staging environment untuk pengetesan pertama.
+            </p>
+          </div>
+        </div>
+
+        <div style="margin-top:1.25rem; display:flex; justify-content:space-between; align-items:center; padding:1rem 1.4rem; background:linear-gradient(90deg, rgba(229,169,60,0.1), rgba(255,0,51,0.1)); border:1px solid var(--frutta-gold); border-radius:8px;">
+          <div>
+            <div style="font-family:var(--font-outfit); font-size:1rem; font-weight:800; color:#fff;">
+              Jadwalkan Technical Discovery API Bersama Tim IT Frutta Gelato
+            </div>
+            <div style="font-size:0.75rem; color:var(--home-fg-2);">
+              Hubungi Alif Yusfan (AE Fleek Project) // Sesi Demo &amp; Validasi Teknis
+            </div>
+          </div>
+          <button class="btn-book-meeting" style="background:var(--frutta-gold); color:#111; font-weight:900;" onclick="triggerToast('⚡ Permintaan Technical Discovery berhasil dicatat!')">
+            KICK-OFF TECHNICAL DISCOVERY →
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Notification Toast -->
+  <div id="deckToast" class="deck-toast">
+    <span>⚡</span> <span id="deckToastText">Notifikasi Sistem</span>
+  </div>
+
+  <!-- Anime.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <!-- Main Application Script -->
+  <script src="app.js"></script>
+</body>
+</html>
