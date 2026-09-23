@@ -89,10 +89,10 @@
       <li><a href="#demo-po" class="nav-link"><span class="number">05</span> 🔥 Demo 2: PO Capture &amp; ERP Sync</a></li>
       <li><a href="#doc-generator" class="nav-link"><span class="number">06</span> Deep-Dive: Signed PO Generation</a></li>
       <li><a href="#sys-flow" class="nav-link"><span class="number">07</span> Sequence Flowchart (Mermaid)</a></li>
-      <li><a href="#extended-scope" class="nav-link"><span class="number">08</span> IT Readiness Gate &amp; ERP Scope</a></li>
-      <li><a href="#commercial-transparency" class="nav-link"><span class="number">09</span> Custom Enterprise Quote &amp; Costs</a></li>
+      <li><a href="#extended-scope" class="nav-link"><span class="number">08</span> Direct API ERP &amp; IT Checklist</a></li>
+      <li><a href="#commercial-transparency" class="nav-link"><span class="number">09</span> Enterprise Quote &amp; OpEx Transparency</a></li>
       <li><a href="#outbound-roadmap" class="nav-link"><span class="number">10</span> Workstream B: Outbound Sourcing</a></li>
-      <li><a href="#timeline" class="nav-link"><span class="number">11</span> 4-Week Implementation Roadmap</a></li>
+      <li><a href="#timeline" class="nav-link"><span class="number">11</span> 2-Month Core Roadmap (Excl. ERP)</a></li>
       <li><a href="#closing-cta" class="nav-link"><span class="number">12</span> Next Steps &amp; Discovery Handshake</a></li>
     </ul>
     <div class="nav-drawer-footer">
@@ -607,7 +607,7 @@ POST /api/v1/frutta/orders/po-capture
 sequenceDiagram
     autonumber
     actor Mitra as Mitra / Calon Mitra
-    participant WA as WhatsApp Meta Gateway
+    participant WA as WhatsApp API Gateway
     participant AI as Fleek Intelligent Core (Gemini)
     participant ERP as Open API Sistem Internal (ERP Frutta)
     participant Ops as Grup WA Operasional / Sales
@@ -642,57 +642,78 @@ sequenceDiagram
          ============================================================ -->
     <section id="extended-scope" class="slide-panel">
       <div class="section-content">
-        <span class="sect-meta">// SYS_SCOPING: BOUNDARY FASE 1 VS FASE 1.5 &amp; IT READINESS GATE</span>
+        <span class="sect-meta">// SYS_INTEGRATION: DIRECT API ERP &amp; IT COLLABORATION SPEC</span>
         <div class="project-header">
-          <span class="project-tag" style="border-color:#10b981; color:#10b981; background:rgba(16,185,129,0.1);">IT Readiness Gate • Prasyarat Integrasi ERP</span>
+          <span class="project-tag" style="border-color:#10b981; color:#10b981; background:rgba(16,185,129,0.1);">Direct Integration • Open API ERP</span>
           <h2 class="project-name animate-text">
-            Batasan Sistem: Fase 1 (Core MVP) vs Add-on Direct API ERP
+            Arsitektur Terintegrasi Langsung (Direct API) &amp; Kebutuhan Tim IT
           </h2>
         </div>
 
-        <div style="display:grid; grid-template-columns:1fr 1.15fr; gap:1.2rem; margin-top:0.4rem;">
-          <!-- Kolom Kiri: Garis Batas Rilis -->
-          <div class="cyber-decor" style="padding:1rem; border-left:4px solid var(--frutta-gold); display:flex; flex-direction:column; gap:0.6rem;">
-            <div style="font-family:var(--font-outfit); font-size:0.75rem; font-weight:800; color:var(--frutta-gold); text-transform:uppercase;">
-              Garis Batas Rilis Sistem
+        <div style="display:grid; grid-template-columns:1.05fr 1.15fr; gap:1.2rem; margin-top:0.4rem;">
+          <!-- Kolom Kiri: Alur Sistem Terpadu (Direct Pipeline) -->
+          <div class="cyber-decor" style="padding:1rem; border-left:4px solid var(--frutta-gold); display:flex; flex-direction:column; gap:0.5rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div style="font-family:var(--font-outfit); font-size:0.75rem; font-weight:800; color:var(--frutta-gold); text-transform:uppercase;">
+                Alur Sistem Terintegrasi Langsung (Direct)
+              </div>
+              <span class="wa-header-pill" style="font-size:0.55rem; color:#10b981; border-color:#10b981;">ALL-IN-ONE PIPELINE</span>
             </div>
             
-            <div style="background:#151514; border:1px solid #2a2a28; border-radius:6px; padding:0.75rem;">
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.3rem;">
-                <strong style="font-size:0.82rem; color:#10b981;">🟢 FASE 1: CORE MVP (100% MANDIRI)</strong>
-                <span class="wa-header-pill" style="font-size:0.58rem;">ZERO IT DEPENDENCY</span>
+            <div style="display:flex; flex-direction:column; gap:0.4rem;">
+              <div style="background:#151514; border:1px solid #282826; border-radius:6px; padding:0.5rem 0.65rem;">
+                <div style="font-family:var(--font-outfit); font-size:0.74rem; font-weight:700; color:#fff; margin-bottom:2px;">
+                  1. Official WhatsApp API Gateway (24/7)
+                </div>
+                <div style="font-size:0.68rem; color:var(--home-fg-2); line-height:1.35;">
+                  1 Nomor resmi menangani Inbound Leads calon mitra &amp; penangkapan PO malam hari secara otonom tanpa henti.
+                </div>
               </div>
-              <p style="font-size:0.73rem; color:var(--home-fg-2); line-height:1.38; margin:0;">
-                Berjalan mandiri via WhatsApp Gateway Resmi + Dual AI Engine + Notifikasi Real-time ke <b>Grup WA Operasional Frutta Bali</b> + Fleek Database (Spreadsheet/Supabase) + <b>Signed PDF PO Generator</b>. Dijamin go-live cepat tanpa menunggu kesiapan server internal.
-              </p>
-            </div>
 
-            <div style="background:#151514; border:1px solid #2a2a28; border-radius:6px; padding:0.75rem;">
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.3rem;">
-                <strong style="font-size:0.82rem; color:var(--frutta-gold);">⚙️ FASE 1.5: DIRECT API ERP SYNC</strong>
-                <span class="wa-header-pill" style="font-size:0.58rem; background:rgba(229,169,60,0.15); color:var(--frutta-gold); border-color:var(--frutta-gold);">ADD-ON SETUP FEE</span>
+              <div style="background:#151514; border:1px solid #282826; border-radius:6px; padding:0.5rem 0.65rem;">
+                <div style="font-family:var(--font-outfit); font-size:0.74rem; font-weight:700; color:#fff; margin-bottom:2px;">
+                  2. Dual-Engine AI &amp; Automatic Signed PDF PO
+                </div>
+                <div style="font-size:0.68rem; color:var(--home-fg-2); line-height:1.35;">
+                  Ekstraksi pesanan varian gelato, konfirmasi komitmen ketat, dan penerbitan dokumen PO resmi bertanda tangan digital &amp; token <code>#FRU-VLD-XXXX</code>.
+                </div>
               </div>
-              <p style="font-size:0.73rem; color:var(--home-fg-2); line-height:1.38; margin:0;">
-                Sambungan langsung dua arah ke database ERP internal Frutta Gelato. Memerlukan penyesuaian khusus dan uji coba sandbox bersama tim IT Frutta.
-              </p>
+
+              <div style="background:#151514; border:1px solid #282826; border-radius:6px; padding:0.5rem 0.65rem;">
+                <div style="font-family:var(--font-outfit); font-size:0.74rem; font-weight:700; color:#fff; margin-bottom:2px;">
+                  3. Direct REST API ke ERP Internal Frutta Gelato
+                </div>
+                <div style="font-size:0.68rem; color:var(--home-fg-2); line-height:1.35;">
+                  Data pesanan langsung ditembakkan ke database ERP Frutta secara real-time via API tanpa input manual admin kantor.
+                </div>
+              </div>
+
+              <div style="background:#151514; border:1px solid #282826; border-radius:6px; padding:0.5rem 0.65rem;">
+                <div style="font-family:var(--font-outfit); font-size:0.74rem; font-weight:700; color:#fff; margin-bottom:2px;">
+                  4. Real-time Dispatch ke Grup WA Gudang &amp; Offline Buffer
+                </div>
+                <div style="font-size:0.68rem; color:var(--home-fg-2); line-height:1.35;">
+                  Notifikasi instan terkirim ke Grup WA Operasional Bali, dilengkapi buffer antrean cadangan (jika server ERP Frutta sewaktu-waktu maintenance).
+                </div>
+              </div>
             </div>
           </div>
 
-          <!-- Kolom Kanan: 4 Prasyarat Teknis untuk Tim IT -->
+          <!-- Kolom Kanan: 4 Prasyarat Teknis untuk Tim IT Frutta -->
           <div class="cyber-decor" style="padding:1rem; border-left:4px solid #10b981; display:flex; flex-direction:column; gap:0.45rem;">
             <div style="display:flex; justify-content:space-between; align-items:center;">
               <div style="font-family:var(--font-outfit); font-size:0.75rem; font-weight:800; color:#10b981; text-transform:uppercase;">
                 4 Kebutuhan Teknis dari Tim IT Frutta (Checklist)
               </div>
-              <span style="font-family:monospace; font-size:0.65rem; color:var(--home-fg-3);">IT DISCOVERY GATE</span>
+              <span style="font-family:monospace; font-size:0.65rem; color:var(--home-fg-3);">IT COLLABORATION GATE</span>
             </div>
 
             <div class="it-req-item">
               <div class="req-title">
-                <span>1. API Endpoint URL (Sandbox / Staging)</span>
+                <span>1. API Endpoint URL (Staging &amp; Production)</span>
               </div>
               <div class="req-desc">
-                Base URL endpoint staging yang dapat dijangkau Fleek Automation Core (contoh: <code>POST /api/v1/orders/po-capture</code>).
+                Base URL endpoint staging yang dapat dijangkau Fleek Automation Core untuk inject order (contoh: <code>POST /api/v1/orders/po-capture</code>).
               </div>
             </div>
 
@@ -701,7 +722,7 @@ sequenceDiagram
                 <span>2. Token Key / API Key / Bearer Auth</span>
               </div>
               <div class="req-desc">
-                Kredensial autentikasi header aktif dengan hak akses write/create order ke database internal Frutta.
+                Kredensial autentikasi header aktif dengan hak akses write/create order ke database internal Frutta Gelato.
               </div>
             </div>
 
@@ -710,27 +731,27 @@ sequenceDiagram
                 <span>3. JSON Payload Contract &amp; Response Schema</span>
               </div>
               <div class="req-desc">
-                Dokumentasi struktur field data pesanan (Swagger, Postman Collection, atau cURL sample) agar pemetaan SKU, Qty, dan Tanggal Kirim 100% presisi.
+                Dokumentasi struktur field data pesanan (Swagger, Postman Collection, atau cURL sample) agar pemetaan SKU rasa, Qty tub, dan Tanggal Kirim 100% presisi.
               </div>
             </div>
 
             <div class="it-req-item">
               <div class="req-title">
-                <span>4. Webhook / Callback URL (Opsional)</span>
+                <span>4. Webhook / Callback URL Status (Opsional)</span>
               </div>
               <div class="req-desc">
-                Endpoint penerima sinyal status order dari gudang (IN_PREPARATION, IN_DELIVERY, COMPLETED).
+                Endpoint penerima sinyal status order dari gudang Frutta (contoh: <code>IN_PREPARATION</code>, <code>IN_DELIVERY</code>, <code>COMPLETED</code>).
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Safety Fallback Clause Banner -->
+        <!-- Collaboration Clause Banner -->
         <div style="margin-top:0.65rem; padding:0.55rem 0.95rem; background:rgba(16, 185, 129, 0.08); border:1px solid #10b981; border-radius:6px; display:flex; justify-content:space-between; align-items:center;">
           <span style="font-size:0.73rem; color:#d1fae5; line-height:1.35;">
-            🛡️ <b>Klausul Jaminan Fleek:</b> Jika tim IT Frutta memerlukan waktu untuk menyiapkan API/Endpoint, <b>Fase 1 TETAP BERJALAN 100% GO-LIVE</b> via Fleek DB &amp; Grup WA Operasional tanpa menunda jadwal peluncuran!
+            ⚡ <b>Kolaborasi Teknis Fleek x IT Frutta:</b> Tim Engineering Fleek siap mendampingi sesi Technical Discovery (30 menit) bersama tim IT Frutta untuk menyepakati kontrak payload JSON dan uji coba sandbox tanpa membebani tim internal!
           </span>
-          <span class="stamp-confidential" style="font-size:0.58rem; background:rgba(16,185,129,0.15); border-color:#10b981; color:#10b981;">SAFETY FALLBACK</span>
+          <span class="stamp-confidential" style="font-size:0.58rem; background:rgba(16,185,129,0.15); border-color:#10b981; color:#10b981;">ZERO FRICTION</span>
         </div>
       </div>
     </section>
@@ -740,52 +761,90 @@ sequenceDiagram
          ============================================================ -->
     <section id="commercial-transparency" class="slide-panel">
       <div class="section-content">
-        <span class="sect-meta">// SYS_COMMERCIAL: CUSTOM ENTERPRISE QUOTE &amp; BIAYA 3RD PARTY</span>
+        <span class="sect-meta">// SYS_COMMERCIAL: JUAL PUTUS FULL ENTERPRISE &amp; TRANSPARANSI BIAYA 3RD PARTY</span>
         <div class="project-header" style="margin-bottom:0.35rem;">
           <span class="project-tag" style="border-color:var(--frutta-gold); color:var(--frutta-gold); background:var(--frutta-gold-dim);">Investasi &amp; Biaya Operasional</span>
           <h2 class="project-name animate-text" style="font-size:1.55rem;">
-            Custom Enterprise Pricing &amp; Transparansi Biaya 3rd Party
+            Investasi Pengembangan (Jual Putus) &amp; Estimasi Biaya Berjalan Bulanan
           </h2>
         </div>
 
-        <!-- 3 Pricing Tier Cards (Custom Enterprise Quote) -->
-        <div class="pricing-tier-grid">
-          <div class="pricing-card">
-            <span class="pricing-tier-tag">FASE 1 // CORE MVP SETUP</span>
-            <div class="pricing-tier-price">Rp 30jt – 35jt <span>/ setup</span></div>
-            <ul class="pricing-feature-list">
-              <li>✅ <b>Dual-Engine AI</b> (Sales Inbound + PO Night-Shift)</li>
-              <li>✅ 1 Nomor WhatsApp Business API Meta</li>
-              <li>✅ Notifikasi Real-Time Grup WA Operasional</li>
-              <li>✅ Automatic Signed PDF PO Generator</li>
-              <li>✅ Fleek DB Sync (Spreadsheet / Supabase)</li>
-            </ul>
-          </div>
-
-          <div class="pricing-card">
-            <span class="pricing-tier-tag" style="color:#10b981;">FASE 1.5 // ADD-ON DIRECT ERP</span>
-            <div class="pricing-tier-price" style="color:#10b981;">Rp 15jt – 20jt <span>/ setup</span></div>
-            <ul class="pricing-feature-list">
-              <li>⚙️ Direct Open API ERP Bidirectional Sync</li>
-              <li>⚙️ Custom Middleware &amp; Error Recovery Queue</li>
-              <li>⚙️ Postman Test Suite &amp; Staging Sandbox Trial</li>
-              <li>⚙️ Auto-Fallback to Fleek DB jika ERP Timeout</li>
-              <li>💡 <i>Disesuaikan saat sesi IT Discovery</i></li>
-            </ul>
-          </div>
-
+        <!-- 2-Column Split: One-Time Setup (Jual Putus) vs OpEx Berjalan Bulanan -->
+        <div class="pricing-enterprise-split">
+          <!-- Kolom 1: One-Time Development (Jual Putus Rp 50 Juta) -->
           <div class="pricing-card featured">
             <div style="display:flex; justify-content:space-between; align-items:center;">
-              <span class="pricing-tier-tag" style="color:var(--frutta-gold);">FULL ENTERPRISE BUNDLE</span>
-              <span class="stamp-confidential" style="font-size:0.55rem;">POPULER</span>
+              <span class="pricing-tier-tag" style="color:var(--frutta-gold);">JUAL PUTUS // FULL SYSTEM OWNERSHIP</span>
+              <span class="stamp-confidential" style="font-size:0.55rem;">OFFICIAL QUOTE</span>
             </div>
-            <div class="pricing-tier-price" style="color:var(--frutta-gold);">Rp 45jt – 50jt <span>/ all-in</span></div>
+            <div class="pricing-tier-price" style="color:var(--frutta-gold);">
+              Rp 50.000.000,- <span style="color:var(--home-fg-2);">/ all-in investment</span>
+            </div>
+            
+            <!-- Termin Skema Pembayaran -->
+            <div style="background:#151514; border:1px solid #282826; border-radius:6px; padding:0.4rem 0.65rem; margin-bottom:0.5rem; display:flex; justify-content:space-between; font-size:0.7rem;">
+              <div><span>Termin 1 (DP 55% Kickoff):</span> <strong style="color:var(--frutta-gold);">Rp 27.500.000</strong></div>
+              <div><span>Termin 2 (Pelunasan 45% Live):</span> <strong style="color:#10b981;">Rp 22.500.000</strong></div>
+            </div>
+
             <ul class="pricing-feature-list">
-              <li>🌟 Core Dual AI + Direct API ERP Terpadu</li>
-              <li>🌟 Prioritas Technical Discovery Sprint 1</li>
-              <li>🌟 Skema Termin Fleek: <b>DP 55% Kick-Off</b> &amp; <b>Pelunasan 45%</b> Pasca UAT &amp; Live</li>
-              <li>🌟 Dedicated Support &amp; SLA Garansi 30 Hari</li>
+              <li>🌟 <b>Dual-Engine AI Agent:</b> Inbound Sales Qualifier &amp; 24/7 Night PO Parser</li>
+              <li>🌟 <b>WhatsApp API Resmi:</b> 1 Nomor WA API Verified Enterprise (Anti-Banned)</li>
+              <li>🌟 <b>Automatic Signed PDF PO:</b> Render dokumen validasi ber-token <code>#FRU-VLD-XXXX</code></li>
+              <li>🌟 <b>Dispatch Grup WA:</b> Tembak notifikasi instan ke Grup WA Operasional Bali</li>
+              <li>🌟 <b>Direct API ERP Readiness:</b> Sambungan REST API internal Frutta (JSON Schema, Auth)</li>
+              <li>🌟 <b>Kepemilikan 100%:</b> Workflow &amp; Database menjadi aset proprietary Frutta</li>
+              <li>🌟 <b>Dedicated SLA 30 Hari:</b> Garansi bug-free, pendampingan UAT, dan training tim</li>
             </ul>
+          </div>
+
+          <!-- Kolom 2: Transparansi Biaya Langganan Bulanan 3rd Party (OpEx Murni) -->
+          <div class="pricing-card" style="border-color:#10b981;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span class="pricing-tier-tag" style="color:#10b981;">BIAYA OPERASIONAL BULANAN (OPEX)</span>
+              <span class="wa-header-pill" style="font-size:0.55rem; color:#10b981; border-color:#10b981;">ZERO MARKUP FLEEK</span>
+            </div>
+            <div class="pricing-tier-price" style="color:#10b981;">
+              ~Rp 390.000 – Rp 590.000 <span style="color:var(--home-fg-2);">/ bulan (Estimasi Riil)</span>
+            </div>
+            
+            <p style="font-size:0.69rem; color:var(--home-fg-3); line-height:1.3; margin:0 0 0.35rem 0;">
+              Karena sistem model <b>Jual Putus</b>, biaya operasional infra di bawah dibayarkan langsung oleh Frutta Gelato ke penyedia resmi (pass-through tanpa markup dari Fleek):
+            </p>
+
+            <div class="opex-breakdown-list">
+              <div class="opex-item">
+                <div class="opex-item-info">
+                  <span class="opex-item-title">🖥️ Dedicated Cloud VPS (Relay &amp; DB)</span>
+                  <span class="opex-item-desc">Server backend, WhatsApp Gateway, dan database 24/7</span>
+                </div>
+                <span class="opex-item-price">Rp 140.000 / bln</span>
+              </div>
+
+              <div class="opex-item">
+                <div class="opex-item-info">
+                  <span class="opex-item-title">🧠 AI Intelligent Token Engine</span>
+                  <span class="opex-item-desc">Parsing teks PO malam &amp; kualifikasi leads B2B (hemat token)</span>
+                </div>
+                <span class="opex-item-price">~Rp 250k – 450k / bln</span>
+              </div>
+
+              <div class="opex-item">
+                <div class="opex-item-info">
+                  <span class="opex-item-title">💬 WhatsApp Gateway Engine (Dedicated)</span>
+                  <span class="opex-item-desc">Unlimited chat &amp; routing otomatis, tanpa biaya per-pesan</span>
+                </div>
+                <span class="opex-item-price" style="color:#4ade80;">Rp 0 (Included di VPS)</span>
+              </div>
+
+              <div class="opex-item">
+                <div class="opex-item-info">
+                  <span class="opex-item-title">📄 Generate Dokumen Signed PDF PO</span>
+                  <span class="opex-item-desc">Render PDF bertanda-tangan digital &amp; arsip dokumen</span>
+                </div>
+                <span class="opex-item-price" style="color:#4ade80;">Rp 0 (Included di VPS)</span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -800,10 +859,10 @@ sequenceDiagram
               <span style="font-family:monospace; font-size:0.65rem; color:#10b981;">MAX 6–8 BUBBLE</span>
             </div>
             <p style="font-size:0.72rem; color:var(--home-fg-2); line-height:1.35; margin:0 0 0.4rem 0;">
-              Biaya 3rd party transparan (pass-through): <b>Rp 500 / bubble AI</b> (Gemini 2.0 Flash reasoning + Meta WA API) &amp; <b>Rp 1.500 / render dokumen PDF</b>.
+              Biaya 3rd party efisien (pass-through): <b>VPS Server Rp 140.000/bln</b> &amp; <b>Token AI ~Rp 250k–450k/bln</b>. WhatsApp Gateway &amp; PDF ter-host mandiri di server tanpa biaya per-chat!
             </p>
             <div style="font-size:0.71rem; color:var(--home-fg-1); background:#151514; padding:0.4rem 0.65rem; border-radius:4px; border:1px solid #282826;">
-              🔒 <b>Proteksi Otomatis:</b> Jika percakapan mencapai 6–8 bubble tanpa keputusan, AI otomatis mengalihkan chat ke Tim Sales/Admin Manusia. Biaya klien terproteksi 100%.
+              🔒 <b>Proteksi Otomatis:</b> Jika percakapan mencapai 6–8 bubble tanpa keputusan, AI otomatis mengalihkan chat ke Tim Sales/Admin Manusia. Biaya bulanan Frutta terproteksi 100%.
             </div>
           </div>
 
@@ -814,11 +873,16 @@ sequenceDiagram
                 <span style="font-size:0.72rem; color:var(--home-fg-1); font-weight:700;">Simulasi Chat Masuk:</span>
                 <span id="chatVolumeDisplay" style="font-family:var(--font-outfit); font-weight:900; color:var(--frutta-gold); font-size:0.95rem; margin-left:6px;">1,000 Chat</span>
               </div>
-              <input type="range" id="chatVolumeSlider" class="calc-slider" min="200" max="5000" step="100" value="1000" oninput="updateCostCalculation(this.value)" style="width:45%;">
+              <input type="range" id="chatVolumeSlider" class="calc-slider" min="200" max="2500" step="100" value="1000" oninput="updateCostCalculation(this.value)" style="width:45%;">
             </div>
             <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #2a2a28; padding-top:0.45rem; font-size:0.75rem;">
-              <span>Estimasi Token 3rd Party:</span>
-              <strong id="costEstimateDisplay" style="font-family:var(--font-outfit); font-size:1.05rem; color:#10b981;">Rp 500,000 / bln</strong>
+              <span>Estimasi OpEx (VPS + Token AI):</span>
+              <strong id="costEstimateDisplay" style="font-family:var(--font-outfit); font-size:1.05rem; color:#10b981;">Rp 365,000 / bln</strong>
+            </div>
+            <div id="costBreakdownDetail" style="font-size:0.65rem; color:var(--home-fg-3); margin-top:2px; display:flex; justify-content:space-between;">
+              <span>Server VPS: Rp 140.000</span>
+              <span>Token AI: ~Rp 225.000</span>
+              <span>Signed PDF PO (~150): Rp 0</span>
             </div>
           </div>
         </div>
@@ -877,61 +941,61 @@ sequenceDiagram
     </section>
 
     <!-- ============================================================
-         SLIDE 11: IMPLEMENTATION ROADMAP (4 WEEKS)
+         SLIDE 11: IMPLEMENTATION ROADMAP (8 WEEKS CORE)
          ============================================================ -->
     <section id="timeline" class="slide-panel">
       <div class="section-content">
-        <span class="sect-meta">// SYS_MILESTONE: 4-WEEK ROLLOUT TIMELINE</span>
+        <span class="sect-meta">// SYS_MILESTONE: 8-WEEK CORE ROLLOUT TIMELINE (DI LUAR SETUP ERP)</span>
         <div class="project-header">
-          <span class="project-tag">Timeline Menuju Go-Live</span>
+          <span class="project-tag" style="border-color:var(--frutta-gold); color:var(--frutta-gold); background:var(--frutta-gold-dim);">Roadmap Core System (Di Luar Setup ERP)</span>
           <h2 class="project-name animate-text">
-            Roadmap Implementasi Cepat Menuju Official Deployment
+            Target 2 Bulan (8 Minggu) Implementasi Core System Menuju Go-Live
           </h2>
         </div>
 
         <div class="timeline-pipeline">
           <div class="timeline-step active">
             <div class="timeline-node">1</div>
-            <div class="timeline-meta">Minggu 1</div>
-            <h5 class="timeline-title">IT Discovery &amp; Readiness Gate</h5>
+            <div class="timeline-meta">Minggu 1 – 2</div>
+            <h5 class="timeline-title">Discovery, Prompting &amp; WA API Setup</h5>
             <p class="timeline-desc">
-              Pertemuan teknis bersama tim IT Frutta, validasi 4 item wajib (Endpoint, Token, Payload Spec, Webhook), dan setup sandbox staging.
+              Discovery alur bisnis Frutta Gelato, registrasi &amp; verifikasi nomor WhatsApp API Resmi, perancangan persona AI Bali Artisan, input masterdata katalog varian rasa &amp; mitra existing.
             </p>
           </div>
 
           <div class="timeline-step">
             <div class="timeline-node">2</div>
-            <div class="timeline-meta">Minggu 2</div>
-            <h5 class="timeline-title">Dual-Workflow Engineering</h5>
+            <div class="timeline-meta">Minggu 3 – 4</div>
+            <h5 class="timeline-title">Dual-Engine &amp; PDF PO Engineering</h5>
             <p class="timeline-desc">
-              Konfigurasi Prompt NLU Gemini, intent memory router (New vs Existing), parser PO malam hari, dan webhook Grup WA Operasional.
+              Pembangunan Engine #1 (Sales Qualifier) &amp; Engine #2 (Night PO Capture), integrasi template PDF berstempel digital &amp; token unik <code>#FRU-VLD-XXXX</code>, dan sinkronisasi database.
             </p>
           </div>
 
           <div class="timeline-step">
             <div class="timeline-node">3</div>
-            <div class="timeline-meta">Minggu 3</div>
-            <h5 class="timeline-title">UAT &amp; Night-Shift Trial</h5>
+            <div class="timeline-meta">Minggu 5 – 6</div>
+            <h5 class="timeline-title">Grup Ops Dispatch &amp; Night Stress-Test</h5>
             <p class="timeline-desc">
-              Uji coba simulasi order malam hari bersama 2–3 mitra Horeca percontohan, validasi PDF signed PO, dan kalibrasi threshold anti-boncos.
+              Koneksi webhook ke Grup WhatsApp Operasional Bali, kalibrasi threshold anti-boncos (6–8 bubble), dan simulasi uji coba order malam hari bersama 2–3 mitra Horeca percontohan.
             </p>
           </div>
 
           <div class="timeline-step">
             <div class="timeline-node">4</div>
-            <div class="timeline-meta">Minggu 4</div>
-            <h5 class="timeline-title">Go-Live &amp; Staff Training</h5>
+            <div class="timeline-meta">Minggu 7 – 8</div>
+            <h5 class="timeline-title">End-to-End UAT &amp; Official Go-Live</h5>
             <p class="timeline-desc">
-              Peluncuran resmi nomor WhatsApp Business Meta Frutta Gelato, pelatihan admin/gudang, dan pendampingan live support SLA Fleek.
+              UAT menyeluruh bersama tim Pak Fauzan, pelatihan admin &amp; staf shift gudang, serah terima sistem jual putus (source workflow &amp; akses), serta peluncuran resmi nomor WhatsApp API Frutta Gelato.
             </p>
           </div>
         </div>
 
         <div style="margin-top:1.5rem; padding:0.8rem 1.2rem; background:var(--card-bg); border:1px solid var(--window-border); border-radius:6px; display:flex; justify-content:space-between; align-items:center;">
           <span style="font-size:0.78rem; color:var(--home-fg-1);">
-            🚀 <b>Jaminan Fleek:</b> Sistem live dalam 30 hari kalender tanpa mengganggu jalannya operasional harian Frutta Gelato.
+            🚀 <b>Jaminan Timeline:</b> Core MVP Go-Live 100% dalam 2 Bulan (8 Minggu). Integrasi Direct API ERP (Fase 2) dilanjutkan secara paralel mengikuti kesiapan tim IT Frutta Gelato.
           </span>
-          <span class="stamp-confidential" style="font-size:0.6rem;">GUARANTEED SLA</span>
+          <span class="stamp-confidential" style="font-size:0.6rem;">8-WEEK CORE SLA</span>
         </div>
       </div>
     </section>
